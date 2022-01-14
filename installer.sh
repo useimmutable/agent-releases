@@ -12,7 +12,7 @@ ARCH=$(uname -m)
 if [ "$OS" = "linux" ]; then
   if [ "$ARCH" = "x86_64" ]; then
     PLATFORM="x86_64-unknown-linux-musl"
-  elif [ "$ARCH" = "arm64" ]; then
+  elif [ "$ARCH" = "aarch64" ]; then
     PLATFORM="aarch64-unknown-linux-musl"
   else
     echo "Unsupported operating system and architecture: $OS ($ARCH)"
@@ -22,8 +22,7 @@ elif [ "$OS" = "darwin" ]; then
   if [ "$ARCH" = "x86_64" ]; then
     PLATFORM="x86_64-apple-darwin"
   elif [ "$ARCH" = "arm64" ]; then
-    echo "warning: using x86_64-apple-darwin target for arm64"
-    PLATFORM="x86_64-apple-darwin"
+    PLATFORM="aarch64-apple-darwin"
   else
     echo "Unsupported operating system and architecture: $OS ($ARCH)"
     exit 1
